@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Change Mailbox Password</title>
+<title>Mailbox Passwort</title>
 <meta charset="utf-8">
 <style>
     html {
@@ -75,7 +75,7 @@
 </style>
 <body>
     <div id="Main">
-        <h1>Change Mailbox Password</h1>
+        <h1>Mailbox Passwort ändern</h1>
         {$main_content}
     </div>
 </body>

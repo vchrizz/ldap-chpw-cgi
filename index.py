@@ -79,13 +79,13 @@ def main():
                     else:
                         main_content = read_template_file('fail.tpl', message=cgi.escape(p.stdout.read()))
                 else:
-                    main_content = read_template_file('fail.tpl', message='User not found or wrong password entered.')
+                    main_content = read_template_file('fail.tpl', message='Benutzer nicht gefunden oder Passwort falsch.')
             else:
-                main_content = read_template_file('fail.tpl', message='Passwords do not match.')
+                main_content = read_template_file('fail.tpl', message='Passwörter stimmen nicht überein.')
         elif form_ok == False:
-            main_content = read_template_file('fail.tpl', message='All fields are required.')
+            main_content = read_template_file('fail.tpl', message='Alle Felder müssen ausgefüllt werden.')
         else:
-            main_content = read_template_file('fail.tpl', message='Invalid data type supplied.')
+            main_content = read_template_file('fail.tpl', message='Ungültiger Datentyp.')
     else:
         # Submit button not pressed, show form
         formaction = cgi.escape("https://" + os.environ["HTTP_HOST"] + os.environ["REQUEST_URI"])

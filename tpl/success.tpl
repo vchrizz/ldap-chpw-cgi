@@ -1,1 +1,1 @@
-<p class="success">Your password was changed successfully.</p>
+<p class="success">Passwort erfolgreich geändert.</p>
