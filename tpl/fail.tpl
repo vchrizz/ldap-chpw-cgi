@@ -1,5 +1,5 @@
 <div class="error">
     <h2>Euje, da ist etwas schief gelaufen…</h2>
-    <p>Message: <span class="message">{$message}</span></p>
+    <p><span class="message">{$message}</span></p>
     <a href="" class="back">Nochmal probieren</a>
 </div>
