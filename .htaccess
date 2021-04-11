@@ -1,7 +1,19 @@
-RewriteEngine on
-RewriteCond %{HTTPS} !=on
-RewriteCond %{ENV:HTTPS} !=on
-RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L,NE]
+# required if using apache2: a2enmod authnz_ldap
+AuthType Basic
+AuthName "Login"
+AuthBasicProvider ldap
+#AuthLDAPBindAuthoritative off
+AuthLDAPBindDN UID=bind,OU=Users,DC=ldap,DC=freiesnetz,DC=at
+AuthLDAPBindPassword ldapbind
+AuthLDAPURL ldap://localhost/OU=Users,DC=ldap,DC=freiesnetz,DC=at?uid
+#LDAPReferrals off
+Require valid-user
+
+# disabled because of client error: ERR_TOO_MANY_REDIRECTS
+#RewriteEngine on
+#RewriteCond %{HTTPS} !=on
+#RewriteCond %{ENV:HTTPS} !=on
+#RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L,NE]
 
 Options +ExecCGI
 AddHandler cgi-script .py
