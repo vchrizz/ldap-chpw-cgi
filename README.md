@@ -1,22 +1,15 @@
-# VMailMgr chpw CGI
+# LDAP chpw CGI
 
-This is a Python CGI script that lets virtual `VMailMgr`/`qmail` users change
-their own mail passwords via a web interface.
-
-This script is specifically tailored to work on hosts at
-[uberspace.de](https://uberspace.de). But it may also work on other qmail-based
-systems as long as virtual mail users are managed via `VMailMgr`.
+This is a Python CGI script that lets ldap users change
+their own ldap passwords via a web interface.
 
 ## Installation
 To install the script, simply extract all the repository contents into a folder
 under your document root. No paths need to be configured. Only make sure that the
 location is reachable via HTTPS.
 
-In case you are using a U7 uberspace, you have to add a SELinux permission to allow apache to access both your home directory and the VMailMgr user database:
-`chcon -t httpd_sys_content_t ~ ~/passwd.cdb`
-
 ## Acknowledgements
-This is a majorly refined version of a script originally developed by Dirk Boye.
+This is a majorly for ldap-support rewritten version of a script originally developed by Dirk Boye.
 See [dirkboye/mailpw_change](https://github.com/dirkboye/mailpw_change) at GitHub
 for the original source code.
 
