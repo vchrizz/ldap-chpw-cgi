@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Change Mailbox Password</title>
+<title>LDAP Change Password</title>
 <meta charset="utf-8">
 <style>
     html {
@@ -49,7 +49,6 @@
     a:hover, a:focus {
         text-decoration: none;
     }
-
     #Main {
         margin: 3rem auto;
         padding: 1rem;
@@ -75,8 +74,9 @@
 </style>
 <body>
     <div id="Main">
-        <h1>Change Mailbox Password</h1>
+        <h1>Change LDAP Password</h1>
         {$main_content}
+        {$debug_content}
     </div>
 </body>
 </html>
