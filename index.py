@@ -52,7 +52,7 @@ def main():
     main_content = ''
 
     form = cgi.FieldStorage()
-    debug_content = str(form)
+    http_host = os.environ.get('HTTP_HOST')
     if 'submit' in form.keys():
         formvars = ['accountname', 'oldpass', 'newpass', 'newpass2']
         form_ok = check_form(formvars, form)
@@ -84,7 +84,7 @@ def main():
                     if conn.simple_bind(accountname, newpass) == True:
                         # We did it
                         conn.unbind()
-                        main_content = read_template_file('success.tpl')
+                        main_content = read_template_file('success.tpl', http_host=http_host)
                     else:
                         conn.unbind()
                         main_content = read_template_file('fail.tpl', message=cgi.escape(ldap.LDAPError))
@@ -100,12 +100,11 @@ def main():
         formaction = cgi.escape("https://" + os.environ["HTTP_HOST"] + os.environ["REQUEST_URI"])
         #accountname = os.environ.get('REMOTE_USER')
         accountname = os.environ.get('AUTHENTICATE_UID')
-        http_host = os.environ.get('HTTP_HOST')
         form = read_template_file('form.tpl', formaction=formaction, accountname=accountname, http_host=http_host)
         main_content = form
 
     response = generate_headers() + "\n"
-    response += read_template_file('main.tpl', main_content=main_content, debug_content=debug_content)
+    response += read_template_file('main.tpl', main_content=main_content)
     sys.stdout.buffer.write(response.encode('utf-8'))
 
 
