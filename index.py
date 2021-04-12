@@ -8,6 +8,7 @@ ldap_proto = 'ldap://'
 ldap_server = 'localhost'
 ldap_basedn = 'dc=ldap,dc=freiesnetz,dc=at'
 ldap_userdn = 'ou=Users' +','+ ldap_basedn
+ldap_bind_attr = 'uid'
 
 cgitb.enable(display=0, logdir='logs/')
 
@@ -35,7 +36,7 @@ def check_oldpw(accountname, oldpass):
         conn = ldap.initialize(ldap_proto+ldap_server)
         conn.set_option(ldap.OPT_REFERRALS, 0)
         conn.set_option(ldap.OPT_PROTOCOL_VERSION, 3)
-        if conn.simple_bind("uid="+accountname+","+ldap_userdn, oldpass) == True:
+        if conn.simple_bind(ldap_bind_attr+'='+accountname+','+ldap_userdn, oldpass) == True:
             return True
     except ldap.INVALID_CREDENTIALS:
         conn.unbind()
@@ -67,8 +68,8 @@ def main():
                     conn = ldap.initialize(ldap_proto+ldap_server)
                     conn.set_option(ldap.OPT_REFERRALS, 0)
                     conn.set_option(ldap.OPT_PROTOCOL_VERSION, 3)
-                    conn.simple_bind(accountname, oldpass)
-                    results = conn.search_s(ldap_basedn, ldap.SCOPE_SUBTREE, "(uid="+accountname+")", ["dn"])
+                    conn.simple_bind(ldap_bind_attr+'='+accountname+','+ldap_userdn, oldpass)
+                    results = conn.search_s(ldap_basedn, ldap.SCOPE_SUBTREE, '('+ldap_bind_attr+'='+accountname+')', ['dn'])
                     conn.unbind()
                     for dn in results:
                         conn = ldap.initialize(ldap_proto+ldap_server)
@@ -81,7 +82,7 @@ def main():
                     conn = ldap.initialize(ldap_proto+ldap_server)
                     conn.set_option(ldap.OPT_REFERRALS, 0)
                     conn.set_option(ldap.OPT_PROTOCOL_VERSION, 3)
-                    if conn.simple_bind(accountname, newpass) == True:
+                    if conn.simple_bind(ldap_bind_attr+'='+accountname+','+ldap_userdn, newpass) == True:
                         # We did it
                         conn.unbind()
                         main_content = read_template_file('success.tpl', http_host=http_host)
