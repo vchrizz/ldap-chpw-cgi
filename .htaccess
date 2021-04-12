@@ -4,9 +4,9 @@ AuthName "Login"
 AuthBasicProvider ldap
 #AuthLDAPBindAuthoritative off
 AuthLDAPBindDN UID=bind,OU=Users,DC=ldap,DC=freiesnetz,DC=at
-AuthLDAPBindPassword ldapbind
+AuthLDAPBindPassword ldapbindpassword
 AuthLDAPURL ldap://localhost/OU=Users,DC=ldap,DC=freiesnetz,DC=at?uid
-#LDAPReferrals off
+LDAPReferrals off
 Require valid-user
 
 # disabled because of client error: ERR_TOO_MANY_REDIRECTS
