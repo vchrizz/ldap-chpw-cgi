@@ -6,8 +6,8 @@ their own ldap passwords via a web interface.
 ## Installation
 To install the script, simply extract all the repository contents into a folder
 under your document root. No paths need to be configured. Only make sure that the
-location is reachable via HTTPS.
-If used with Apache2, this module is required: `a2enmod authnz_ldap`
+location is reachable via HTTPS. If used with Apache2, this module is required: `a2enmod authnz_ldap`
+
 Configure LDAP settings for your LDAP server in index.py:
 ```
 ldap_proto = 'ldap://'
