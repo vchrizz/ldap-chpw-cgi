@@ -7,6 +7,7 @@ their own ldap passwords via a web interface.
 To install the script, simply extract all the repository contents into a folder
 under your document root. No paths need to be configured. Only make sure that the
 location is reachable via HTTPS.
+If used with Apache2 module required: `a2enmod authnz_ldap`
 
 ## Acknowledgements
 This is a majorly for ldap-support rewritten version of a script originally developed by Dirk Boye.
