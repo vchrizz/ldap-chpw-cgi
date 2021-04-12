@@ -17,6 +17,7 @@ ldap_proto = 'ldap://'
 ldap_server = 'localhost'
 ldap_basedn = 'dc=ldap,dc=freiesnetz,dc=at'
 ldap_userdn = 'ou=Users' +','+ ldap_basedn
+ldap_bind_attr = 'uid'
 ```
 
 ## Acknowledgements
