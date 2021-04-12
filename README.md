@@ -2,6 +2,7 @@
 
 This is a Python CGI script that lets ldap users change
 their own ldap passwords via a web interface.
+If users with same UID and same oldpassword are found in other OUs, those passwords are updated too.
 
 ## Installation
 To install the script, simply extract all the repository contents into a folder
