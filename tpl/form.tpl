@@ -9,6 +9,6 @@
         <p><label for="newpass2">Repeat New Password:</label>
         <input type="password" name="newpass2" id="newpass2" required></p>
         <p><input type="submit" name="submit" value="Change Password"></p>
-        <p><a href="https://log:out@{$http_host}/">Logout</a> (close browser/tab after logout!)
+        <p><a href="https://log:out@{$http_host}/">Logout</a> (after logout click cancel and close browser/tab!)
     </div>
 </form>
