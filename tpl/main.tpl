@@ -76,7 +76,6 @@
     <div id="Main">
         <h1>Change LDAP Password</h1>
         {$main_content}
-        {$debug_content}
     </div>
 </body>
 </html>
