@@ -20,6 +20,13 @@ ldap_userdn = 'ou=Users' +','+ ldap_basedn
 ldap_bind_attr = 'uid'
 ```
 
+Configure LDAP settings for your LDAP server in .htaccess:
+```
+AuthLDAPBindDN UID=bind,OU=Users,DC=ldap,DC=freiesnetz,DC=at
+AuthLDAPBindPassword ldapbindpassword
+AuthLDAPURL ldap://localhost/OU=Users,DC=ldap,DC=freiesnetz,DC=at?uid
+```
+
 ## Acknowledgements
 This is a majorly for ldap-support rewritten version of a script originally developed by Dirk Boye.
 See [dirkboye/mailpw_change](https://github.com/dirkboye/mailpw_change) at GitHub
