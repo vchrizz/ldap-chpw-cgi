@@ -8,6 +8,13 @@ To install the script, simply extract all the repository contents into a folder
 under your document root. No paths need to be configured. Only make sure that the
 location is reachable via HTTPS.
 If used with Apache2, this module is required: `a2enmod authnz_ldap`
+Configure LDAP settings for your LDAP server in index.py:
+```
+ldap_proto = 'ldap://'
+ldap_server = 'localhost'
+ldap_basedn = 'dc=ldap,dc=freiesnetz,dc=at'
+ldap_userdn = 'ou=Users' +','+ ldap_basedn
+```
 
 ## Acknowledgements
 This is a majorly for ldap-support rewritten version of a script originally developed by Dirk Boye.
